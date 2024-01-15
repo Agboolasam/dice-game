@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Dice game</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- first page -->
     <div id="parent">
-        <div id="welcome">
-            <h2>basic dice game</h2>
-            <button id="play-btn">Play</button>
+      <div id="welcome">
+        <h2>basic dice game</h2>
+        <button id="play-btn">Play</button>
+      </div>
+      <!-- game interface -->
+      <div id="game">
+        <div class="dice" id="dice1"></div>
+        <div class="dice" id="dice2"></div>
+        <div style="grid-area: button">
+          <button id="roll">roll</button>
         </div>
-        <!-- <div id="game">
-        <div class="dice"></div>
-        <div class="dice"></div>
-        <div class="roll">
-          roll
-         
-        </div> -->
-        <!-- <div id="roll">
-          <button>Roll</button>
-        </div> -->
-    </div>
+      </div>
     </div>
 
     <script type="module" src="./index.js"></script>
-</body>
-
+  </body>
 </html>

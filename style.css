@@ -18,6 +18,9 @@
     --dice-w-h: 50px;
     --dice-color: rgb(207, 16, 16);
     --grid-gap: 10px;
+    --dot-color: rgb(212, 215, 19);
+    --dot-w-h: 0.5em;
+    --dot-b-r: 50%;
 }
 
 #parent {
@@ -34,6 +37,7 @@
 
 #welcome {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -51,26 +55,23 @@ button {
 }
 
 #game {
+    position: absolute;
     display: grid;
+    visibility: collapse;
     padding: var(--grid-gap);
-    /* grid-template-columns: 1fr 1fr; */
     grid-template-areas: 'dice1 dice2' 'button button';
     gap: var(--grid-gap);
-    /* justify-content: center; */
     align-items: center;
     background-color: aliceblue;
-    width: var(--box-width);
-    height: var(--box-height);
-}
-
-#roll {
-    column-span: 2;
+    width: fit-content;
+    height: fit-content;
 }
 
 .dice {
     width: var(--dice-w-h);
     height: var(--dice-w-h);
     background: var(--dice-color);
+    border-radius: 3px;
 }
 
 .dice:nth-child(1) {
@@ -81,9 +82,9 @@ button {
     grid-area: dice2;
 }
 
-.roll {
-    grid-area: button;
+#roll {
     padding: var(--br);
+    width: 100%;
     /* height: var(--btn-height); */
     background: blue;
     text-align: center;
@@ -91,7 +92,109 @@ button {
     transition: 300ms;
 }
 
-.roll:is(:hover, :focus) {
+#roll:is(:hover) {
     font-size: var(--fsbig);
-    animation: expand;
+}
+
+
+/* define grid area for empty space */
+
+#empty1 {
+    grid-area: empty1;
+}
+
+#empty2 {
+    grid-area: empty2;
+}
+
+#empty3 {
+    grid-area: empty3;
+}
+
+#empty4 {
+    grid-area: empty4;
+}
+
+
+/* define grid area for the dots */
+
+#dot1 {
+    grid-area: dot1;
+}
+
+#dot2 {
+    grid-area: dot2;
+}
+
+#dot3 {
+    grid-area: dot3;
+}
+
+#dot4 {
+    grid-area: dot4;
+}
+
+#dot5 {
+    grid-area: dot5;
+}
+
+#dot6 {
+    grid-area: dot6;
+}
+
+#dieface1,
+#dieface2,
+#dieface3,
+#dieface4,
+#dieface5,
+#dieface6 {
+    width: var(--dice-w-h);
+    height: var(--dice-w-h);
+    display: grid;
+}
+
+#dieface1 {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+#dieface2,
+#dieface3,
+#dieface4,
+#dieface5,
+#dieface6 {
+    justify-content: space-around;
+    align-items: center;
+}
+
+#dieface2 {
+    grid-template-areas: 'empty1 empty1 dot1' 'dot2 empty2 empty2';
+}
+
+#dieface3 {
+    grid-template-areas: 'empty1 empty1 dot1' 'empty2 dot2  empty3' 'dot3 emtpy4 empty4';
+}
+
+#dieface4 {
+    grid-template-areas: 'dot1 dot2' 'dot3 dot4';
+}
+
+#dieface5 {
+    grid-template-areas: 'dot1 empty1 dot2' 'empty2 dot3 empty3' 'dot4 empty4 dot5';
+}
+
+#dieface6 {
+    grid-template-areas: 'dot1 empty1 dot2' 'dot3 empty1 dot4' 'dot5 empty1 dot6';
+}
+
+.empty {
+    height: var(--dot-w-h);
+}
+
+.dots {
+    background: var(--dot-color);
+    width: var(--dot-w-h);
+    height: var(--dot-w-h);
+    border-radius: var(--dot-b-r);
 }
