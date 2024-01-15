@@ -94,6 +94,7 @@ button {
 
 #roll:is(:hover) {
     font-size: var(--fsbig);
+    background: red;
 }
 
 
