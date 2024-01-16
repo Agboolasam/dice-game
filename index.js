@@ -1,5 +1,6 @@
-import { rollBtn } from "./components/buttons.js";
-import * as random from "./components/randomvalue.js";
+import { rollBtn } from "./functions/buttons.js";
+import * as random from "./functions/randomvalue.js";
+let diceSound = new Audio("./media/sound-1.mp3");
 
 window.addEventListener("DOMContentLoaded", () => {
   // switch to game interface and then give a random value to the game at first
@@ -16,6 +17,8 @@ window.addEventListener("DOMContentLoaded", () => {
 // click event for the button
 document.getElementById("roll").addEventListener("click", () => {
   random.genNum();
+  // play sound
+  diceSound.play();
   rollBtn(document.getElementById("dice1"), random.value1);
   rollBtn(document.getElementById("dice2"), random.value2);
 });

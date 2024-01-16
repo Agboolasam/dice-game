@@ -59,7 +59,7 @@ button {
     display: grid;
     visibility: collapse;
     padding: var(--grid-gap);
-    grid-template-areas: 'dice1 dice2' 'button button';
+    grid-template-areas: 'scoreboard scoreboard' 'dice1 dice2' 'button button';
     gap: var(--grid-gap);
     align-items: center;
     background-color: aliceblue;
@@ -198,4 +198,11 @@ button {
     width: var(--dot-w-h);
     height: var(--dot-w-h);
     border-radius: var(--dot-b-r);
+}
+
+#score-board {
+    /* position: relative; */
+    right: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    grid-area: scoreboard;
 }
