@@ -21,6 +21,8 @@
     --dot-color: rgb(212, 215, 19);
     --dot-w-h: 0.5em;
     --dot-b-r: 50%;
+    --game-w: 140px;
+    --game-h: 160px;
 }
 
 #parent {
@@ -63,8 +65,8 @@ button {
     gap: var(--grid-gap);
     align-items: center;
     background-color: aliceblue;
-    width: fit-content;
-    height: fit-content;
+    width: var(--game-w);
+    height: var(--game-h) auto;
 }
 
 .dice {
@@ -201,8 +203,24 @@ button {
 }
 
 #score-board {
-    /* position: relative; */
-    right: 100%;
     background: rgba(0, 0, 0, 0.5);
     grid-area: scoreboard;
+}
+
+#blurout {
+    width: var(--game-w);
+    height: var(--game-h);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    visibility: collapse;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#set-player {
+    width: 100px;
+    height: var(--btn-height);
+    text-align: center;
+    font-size: 0.7em;
 }
