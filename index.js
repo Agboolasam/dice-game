@@ -1,17 +1,16 @@
 import { rollBtn } from "./functions/buttons.js";
 import * as random from "./functions/randomvalue.js";
-import showPlayer from "./functions/gameplay.js";
+import { showPlayer, players, setScore, reset } from "./functions/gameplay.js";
 let diceSound = new Audio("./media/sound-1.mp3");
 let counter = 0;
 
 // player control
-function player(count) {
-  document.getElementById("set-player").innerHTML = showPlayer(counter);
-  document.getElementById("blurout").style.visibility = "visible";
-  if (count == 2)
-    [
-      // PRINT RESULT
-    ];
+
+function player() {
+  setTimeout((count) => {
+    document.getElementById("set-player").innerHTML = showPlayer(counter);
+    document.getElementById("blurout").style.visibility = "visible";
+  }, 200);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -35,8 +34,15 @@ document.getElementById("roll").addEventListener("click", () => {
   diceSound.play();
   rollBtn(document.getElementById("dice1"), random.value1);
   rollBtn(document.getElementById("dice2"), random.value2);
-  counter++;
+  // reset counter
+  if (counter >= 2) {
+    counter--;
+  } else {
+    counter++;
+  }
+  setScore(counter);
   player(counter);
+  console.log(players[counter - 1].score);
 });
 
 document.getElementById("roll").addEventListener("DOMContentLoaded", () => {
@@ -45,4 +51,8 @@ document.getElementById("roll").addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("set-player").addEventListener("click", () => {
   document.getElementById("blurout").style.visibility = "collapse";
+  //to reset the game
+  if (counter == 2) {
+    reset();
+  }
 });

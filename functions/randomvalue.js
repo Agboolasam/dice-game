@@ -1,5 +1,6 @@
 let value1;
 let value2;
+let score = 0;
 
 // function to generate random number
 function getRandom() {
@@ -13,10 +14,10 @@ function genNum() {
   console.log("run1");
   value2 = getRandom();
   console.log("run2");
-
+  score = value1 + value2;
   //   console.log(value1 + value2);
   //   console.log(value1);
   //   console.log(value2);
 }
 
-export { value1, value2, genNum };
+export { value1, value2, score, genNum };
